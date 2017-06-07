@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" ng-app="findMPApp">
+<head>
+  <meta charset="utf-8">
+  <title>Email Your MP</title>
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body ng-controller="findMPCtrl">
+ <form name="form" class="css-form" novalidate>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <!--Sidebar content-->
+
+        Input your postal code: <input type="text" ng-model="postal_code" name="postalCode" required> (Example: "M6J 2P1" or "L3R 9A9")
+
+        
+        
+       <br><br>
+       Dear {{postal_code | nameFilter:mps}} ,<br><br>
+       
+       We support foreign workers.<br><br>
+       
+       Signed,<br>
+       
+       
+    Name:
+      <input type="text" ng-model="user.name" name="uName" required /><br />
+    E-mail: <input type="email" ng-model="user.email" name="uEmail" required /><br />
+    
+    <div ng-show="form.uEmail.$dirty && form.uEmail.$invalid">Invalid:
+      <span ng-show="form.uEmail.$error.required">Tell us your email.</span>
+      <span ng-show="form.uEmail.$error.email">This is not a valid email.</span>
+    </div>
+    
+    Subject: <input type="text" ng-model="user.subject" name="uSubject" required /><br />
+    
+    <button ng-click="reset()">Reset</button>
+    <button ng-disabled="form.$invalid || isUnchanged(user)|| isUnchanged(postal_code)" ng-click="email(user, postal_code)">Send Email</button>
+    
+    <div id="txt"></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+<style type="text/css">
+  .css-form input.ng-invalid.ng-dirty {
+    background-color: #FA787E;
+  }
+
+  .css-form input.ng-valid.ng-dirty {
+    background-color: #78FA89;
+  }
+</style>
+
+  </form>
+</body>
+
+
+</html>

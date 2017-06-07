@@ -1,0 +1,21 @@
+/* app css stylesheet */
+
+  .css-form input.ng-invalid.ng-dirty {
+    background-color: #FA787E;
+  }
+
+  .css-form input.ng-valid.ng-dirty {
+    background-color: #78FA89;
+  }
+
+  .findmp-app {
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+  }
+  .css-form input.ng-invalid.ng-dirty {
+    background-color: #F6CECE;
+  }
+
+  .css-form input.ng-valid.ng-dirty {
+    background-color: #A9F5A9;
+  }
